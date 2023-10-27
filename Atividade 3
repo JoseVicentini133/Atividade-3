@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <locale.h>
+
+
+int sao_matrizes_opostas(int matriz1[10][10], int matriz2[10][10], int linhas, int colunas) {
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            if (matriz1[i][j] + matriz2[i][j] != 0) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+int main() {
+    int linhas, colunas;
+
+    printf("Informe o número de linhas e colunas das matrizes: ");
+    scanf("%d %d", &linhas, &colunas);
+
+    int matriz1[10][10], matriz2[10][10];
+
+    printf("Informe os elementos da primeira matriz:\n");
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            scanf("%d", &matriz1[i][j]);
+        }
+    }
+
+    printf("Informe os elementos da segunda matriz:\n");
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            scanf("%d", &matriz2[i][j]);
+        }
+    }
+
+    if (sao_matrizes_opostas(matriz1, matriz2, linhas, colunas)) {
+        printf("As matrizes são opostas.\n");
+    } else {
+        printf("As matrizes não são opostas.\n");
+    }
+
+    return 0;
+}
